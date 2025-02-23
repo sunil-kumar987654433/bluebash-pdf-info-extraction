@@ -16,6 +16,8 @@ if "query_search_btn" not in st.session_state:
     st.session_state.query_search_btn = False
 if "query_result" not in st.session_state:
     st.session_state.query_result = None
+if "clear_table_btn" not in st.session_state:
+    st.session_state.clear_table_btn = None
 
 st.sidebar.header("API and File Upload")
 api_key = st.sidebar.text_input("Enter Openai API token", type="password")
@@ -37,9 +39,10 @@ with col1:
     if st.sidebar.button("Upload File"):
         upload_file_btn = True
 
-with col1:
-    if st.sidebar.button("Crear data from database"):
-        upload_file_btn = True
+with col2:
+    if st.sidebar.button("clear data from database"):
+        st.session_state.clear_table_btn = True
+    if st.session_state.clear_table_btn:
         cur.execute("delete from items")
         conn.commit()
         
