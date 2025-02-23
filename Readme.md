@@ -1,8 +1,3 @@
-# bluebash-pdf-info-extraction
-info extraction using openai
-
-
-
 #### PDF info Extraction using OpenAI and Streamlit ###
 
 
