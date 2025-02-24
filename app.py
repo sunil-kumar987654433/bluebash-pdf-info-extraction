@@ -45,6 +45,7 @@ with col2:
     if st.session_state.clear_table_btn:
         cur.execute("delete from items")
         conn.commit()
+        st.session_state.clear_table_btn = False
         
 if upload_file_btn and st.session_state.embeddings_model and upload_file:
     with open("temp.pdf", "wb") as f:
